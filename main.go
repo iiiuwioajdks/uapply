@@ -29,7 +29,8 @@ func main() {
 	}
 
 	// 初始化日志
-	err = logger.Init()
+	// 开发模式
+	err = logger.Init("dev")
 	if err != nil {
 		fmt.Println("init logger failed err:", err)
 	}

@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
+	"os"
 )
 
 func Init() (err error) {
-	viper.SetConfigName("config")
-	viper.SetConfigType("yml")
-	viper.AddConfigPath(".")
+	workDir, _ := os.Getwd()
+	viper.SetConfigFile(workDir + "/config.yml")
+	//viper.AddConfigPath(".")
 	err = viper.ReadInConfig()
 	if err != nil {
 		return err
